@@ -1,10 +1,9 @@
 # string-concat-performance
 
-Run: 
+### Usage:
 ```  
 go test -run=^$ -bench=. -benchmem 
 ```
-
 
 * Method 1: Naive Appending with +=
 * Method 2: Sprintf
@@ -12,7 +11,7 @@ go test -run=^$ -bench=. -benchmem
 * Method 4: strings.Builder
 * Method 5: bytes.Buffer
 
-Results:
+### Results:
 
 ```text
 goos: linux
@@ -37,4 +36,43 @@ BenchmarkConstBytesBuffer-8             100000000               10.29 ns/op     
 PASS
 ok      github.com/akhilesharora/string-concat-performance      364.623s
 
+```
+
+### Machine:
+``` bash 
+$ go env
+GO111MODULE="auto"
+GOARCH="amd64"
+GOBIN=""
+GOEXE=""
+GOEXPERIMENT=""
+GOFLAGS=""
+GOHOSTARCH="amd64"
+GOHOSTOS="linux"
+GOINSECURE=""
+GONOPROXY=""
+GONOSUMDB=""
+GOOS="linux"
+GOPRIVATE=""
+GOPROXY="https://proxy.golang.org,direct"
+GOROOT="/usr/local/go"
+GOSUMDB="sum.golang.org"
+GOTMPDIR=""
+GOTOOLDIR="/usr/local/go/pkg/tool/linux_amd64"
+GOVCS=""
+GOVERSION="go1.18.4"
+GCCGO="gccgo"
+GOAMD64="v1"
+AR="ar"
+CC="gcc"
+CXX="g++"
+CGO_ENABLED="1"
+GOWORK=""
+CGO_CFLAGS="-g -O2"
+CGO_CPPFLAGS=""
+CGO_CXXFLAGS="-g -O2"
+CGO_FFLAGS="-g -O2"
+CGO_LDFLAGS="-g -O2"
+PKG_CONFIG="pkg-config"
+GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build2064074376=/tmp/go-build -gno-record-gcc-switches"
 ```
