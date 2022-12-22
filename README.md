@@ -1,6 +1,9 @@
 # string-concat-performance
 
-Run: ``` go test -gcflags=-N -bench=.```
+Run: 
+```  
+go test -run=^$ -bench=. -benchmem 
+```
 
 
 * Method 1: Naive Appending with +=
@@ -16,22 +19,22 @@ goos: linux
 goarch: amd64
 pkg: github.com/akhilesharora/string-concat-performance
 cpu: Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz
-BenchmarkNaivePlus-8                      308402            213744 ns/op
-BenchmarkLongNaivePlus-8                   10000            633633 ns/op
-BenchmarkConstNaivePlus-8                 183928            109711 ns/op
-BenchmarkJoin-8                           246140            181815 ns/op
-BenchmarkLongJoin-8                        10000            717604 ns/op
-BenchmarkConstJoin-8                      207338            140726 ns/op
-BenchmarkSprintf-8                        166102            244065 ns/op
-BenchmarkLongSprintf-8                     10000           1119389 ns/op
-BenchmarkConstSprintf-8                   192945            303452 ns/op
-BenchmarkStringBuilder-8                71856100             17.31 ns/op
-BenchmarkLongStringBuilder-8             2814878             463.9 ns/op
-BenchmarkConstStringBuilder-8           69755790             18.62 ns/op
-BenchmarkBytesBuffer-8                  125612434            10.35 ns/op
-BenchmarkLongBytesBuffer-8               5283704             846.7 ns/op
-BenchmarkConstBytesBuffer-8             114313764            10.12 ns/op
+BenchmarkNaivePlus-8                      330184            264491 ns/op          994605 B/op          1 allocs/op
+BenchmarkLongNaivePlus-8                   10000            616223 ns/op         2229302 B/op          1 allocs/op
+BenchmarkConstNaivePlus-8                 297709            214269 ns/op          897172 B/op          1 allocs/op
+BenchmarkJoin-8                           233115            173120 ns/op          703376 B/op          1 allocs/op
+BenchmarkLongJoin-8                        10000            694925 ns/op         2229308 B/op          1 allocs/op
+BenchmarkConstJoin-8                      243464            206440 ns/op          734427 B/op          1 allocs/op
+BenchmarkSprintf-8                        177138            248982 ns/op         1247406 B/op          5 allocs/op
+BenchmarkLongSprintf-8                     10000           1042027 ns/op         4620556 B/op          6 allocs/op
+BenchmarkConstSprintf-8                   164761            272869 ns/op         1160515 B/op          4 allocs/op
+BenchmarkStringBuilder-8                109715338               10.19 ns/op           33 B/op          0 allocs/op
+BenchmarkLongStringBuilder-8             2941603               376.2 ns/op          2437 B/op          0 allocs/op
+BenchmarkConstStringBuilder-8           146921577                7.235 ns/op          31 B/op          0 allocs/op
+BenchmarkBytesBuffer-8                  99538117                11.81 ns/op           23 B/op          0 allocs/op
+BenchmarkLongBytesBuffer-8               5806888               375.4 ns/op          1285 B/op          0 allocs/op
+BenchmarkConstBytesBuffer-8             100000000               10.29 ns/op           23 B/op          0 allocs/op
 PASS
-ok      github.com/akhilesharora/string-concat-performance      299.848s
+ok      github.com/akhilesharora/string-concat-performance      364.623s
 
 ```
